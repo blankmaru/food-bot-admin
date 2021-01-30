@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include('./include/head') %>
+	<body>
+		<%- include('./include/nav') %>
+		<div class="container" style="margin-top: 2rem">
+			<div class="row">
+                <h3>Заказы:</h3>
+			</div>
+			<div class="table-responsive">
+				<table class="table table-dark">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Кол-во позиций</th>
+							<th scope="col">Номер</th>
+							<th scope="col">Адрес</th>
+							<th scope="col">Цена</th>
+							<th scope="col">Имя</th>
+							<th scope="col">Оплата</th>
+							<th scope="col">Статус</th>
+                            <th scope="col">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for (let i = 0; i < orders.length; i++) { %>
+						<tr>
+							<th scope="col"><%= i + 1 %></th>
+							<td><%= orders[i].menuItems.length %></td>
+							<td><%= orders[i].customerNumber %></td>
+							<td><%= orders[i].customerAddress %></td>
+							<td><%= orders[i].fullPrice %></td>
+							<td><%= orders[i].customerName %></td>
+							<td><%= orders[i].methodOfPayment %></td>
+                            <td><%= orders[i].status %></td>
+							<td>
+                                <button onclick="updateOrderById('<%= orders[i]._id %>')" type="button" class="btn btn-light">⏳</button>
+								<button type="button" class="btn btn-light">🛵</button>
+								<button type="button" class="btn btn-light">😋</button>
+							</td>
+						</tr>
+						<% } %>
+					</tbody>
+				</table>
+			</div>
+        </div>
+
+        <%- include('./include/scripts') %> <%- include('./include/footer') %>
+	</body>
+</html>
