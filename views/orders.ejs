@@ -34,9 +34,15 @@
 							<td><%= orders[i].methodOfPayment %></td>
                             <td><%= orders[i].status %></td>
 							<td>
-                                <button onclick="updateOrderById('<%= orders[i]._id %>')" type="button" class="btn btn-light">⏳</button>
-								<button type="button" class="btn btn-light">🛵</button>
-								<button type="button" class="btn btn-light">😋</button>
+								<form style="display: inline-block;" action="http://localhost:3000/orderStatusChangeById/<%= orders[i]._id %>/Готовиться⏳" method="POST">
+									<button type="submit" class="btn btn-light">⏳</button>
+								</form>
+								<form style="display: inline-block;" action="http://localhost:3000/orderStatusChangeById/<%= orders[i]._id %>/В пути🛵" method="POST">
+									<button type="submit" class="btn btn-light">🛵</button>
+								</form>
+								<form style="display: inline-block;" action="http://localhost:3000/orderStatusChangeById/<%= orders[i]._id %>/Доставлен😋" method="POST">
+									<button type="submit" class="btn btn-light">😋</button>
+								</form>
 							</td>
 						</tr>
 						<% } %>
