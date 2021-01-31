@@ -23,31 +23,7 @@
                             <th scope="col">Action</th>
 						</tr>
 					</thead>
-					<tbody>
-						<% for (let i = 0; i < orders.length; i++) { %>
-						<tr>
-							<th scope="col"><%= i + 1 %></th>
-							<td><%= orders[i].menuItems.length %></td>
-							<td><%= orders[i].customerNumber %></td>
-							<td><%= orders[i].customerAddress %></td>
-							<td><%= orders[i].fullPrice %></td>
-							<td><%= orders[i].customerName %></td>
-							<td><%= orders[i].methodOfPayment %></td>
-                            <td><%= orders[i].status %></td>
-							<td>
-								<form style="display: inline-block;" action="http://localhost:3000/orderStatusChangeById/<%= orders[i]._id %>/Готовиться⏳" method="POST">
-									<button type="submit" class="btn btn-light">⏳</button>
-								</form>
-								<form style="display: inline-block;" action="http://localhost:3000/orderStatusChangeById/<%= orders[i]._id %>/В пути🛵" method="POST">
-									<button type="submit" class="btn btn-light">🛵</button>
-								</form>
-								<form style="display: inline-block;" action="http://localhost:3000/orderStatusChangeById/<%= orders[i]._id %>/Доставлен😋" method="POST">
-									<button type="submit" class="btn btn-light">😋</button>
-								</form>
-							</td>
-						</tr>
-						<% } %>
-					</tbody>
+					
 				</table>
 			</div>
         </div>
