@@ -5,7 +5,7 @@ const app = express()
 
 const keys = require('./config/keys')
 
-mongoose.connect(keys.MongoURI || process.env.MONGO_URI, {
+mongoose.connect(process.env.MONGO_URI || keys.MongoURI, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
