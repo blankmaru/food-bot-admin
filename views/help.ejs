@@ -5,12 +5,35 @@
         <%- include('./include/nav') %>
         <div class="container" style="margin-top: 2rem;">
             <div class="row">
-                <h1>Help</h1>
+                <h3>Сообщения от клиентов:</h3>
             </div>
             <hr>
-            <div class="row">
-                <p style="height:300px;">Content Here...</p>
-            </div>
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Имя</th>
+                        <th scope="col">Телеграмм Id</th>
+                        <th scope="col">Тема</th>
+                        <th scope="col">Ссылка на чат</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let i=0; i < messages.length; i++) {%>
+                        <tr>
+                            <th scope="col"><%= i + 1 %></th>
+                            <td><%= messages[i].name %></td>
+                            <td><%= messages[i].telegram_id %></td>
+                            <td><%= messages[i].type %></td>
+                            <td>
+                                <a style="text-decoration: none; color: cadetblue;" href="https://t.me/<%= messages[i].telegram_username %>" target="_blank">
+                                    <%= messages[i].telegram_username %>
+                                </a>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
         </div>
 
         <%- include('./include/scripts') %>
