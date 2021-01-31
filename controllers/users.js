@@ -4,5 +4,5 @@ module.exports = (req, res) => {
     User.find().then((users) => {
         if (!users) return
         if (users) return res.render('users', { users })
-    })
+    }).catch((err) => console.log(err))
 }
