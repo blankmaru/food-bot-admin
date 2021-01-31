@@ -10,6 +10,5 @@ module.exports = (req, res) => {
         await doc.save()
     })
     .then(() => res.redirect('/orders'))
-    .catch((err) => console.error(err))
 
 }
