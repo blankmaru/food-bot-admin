@@ -9,7 +9,11 @@ mongoose.connect(process.env.MONGO_URI || keys.MongoURI, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
-}).then(() => console.log('connect to db'))
+})
+.then(() => console.log('connect to db'))
+.catch(err => {
+    console.log(err);
+});
 
 console.log("Database_URL", process.env.MONGO_URI);
 
